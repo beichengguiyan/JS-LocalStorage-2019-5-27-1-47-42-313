@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>LocalStorage</title>
+</head>
+
+<body>
+	<h1></h1>
+	<button onclick="plus();"><strong>增加</strong></button>
+	<button onclick="setZero();">重置</button>
+	<script>
+		if (localStorage.getItem('tempNum')) {
+			document.getElementsByTagName('h1')[0].innerHTML = localStorage.getItem('tempNum');
+		} else {
+			document.getElementsByTagName('h1')[0].innerHTML = 0;
+			localStorage.setItem('tempNum', 0);
+		}
+		function plus() {
+			var num = localStorage.getItem('tempNum');
+			document.getElementsByTagName('h1')[0].innerHTML = ++num;
+			localStorage.setItem('tempNum', num);
+		}
+		function setZero() {
+			localStorage.setItem('tempNum', 0);
+			document.getElementsByTagName('h1')[0].innerHTML = 0;
+		}
+	</script>
+</body>
+
+</html>
